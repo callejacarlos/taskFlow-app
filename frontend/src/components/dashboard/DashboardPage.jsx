@@ -119,7 +119,6 @@ export default function DashboardPage() {
               style={{ padding:20, cursor:'pointer', transition:'transform 0.15s, box-shadow 0.15s', position:'relative' }}
               onMouseEnter={e => { e.currentTarget.style.transform='translateY(-2px)'; e.currentTarget.style.boxShadow='var(--shadow-md)' }}
               onMouseLeave={() => { if(showMenu !== p._id) setShowMenu(null) }}
-              onMouseLeave={e => { e.currentTarget.style.transform=''; e.currentTarget.style.boxShadow='' }}
             >
               {/* Top bar color */}
               <div style={{ height:4, borderRadius:'8px 8px 0 0', background:p.color, margin:'-20px -20px 16px', borderTopLeftRadius:12, borderTopRightRadius:12 }} />
