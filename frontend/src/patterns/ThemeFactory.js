@@ -29,9 +29,6 @@ class ThemeFactory {
   createShadows()    { throw new Error('createShadows() no implementado'); }
   createComponents() { throw new Error('createComponents() no implementado'); }
 
-  /**
-   * Template method: ensambla el tema completo llamando a los métodos abstractos.
-   */
   buildTheme() {
     const name = this.constructor.name.replace('ThemeFactory', '').toLowerCase();
     console.log(`🎨 [Abstract Factory] Construyendo tema: "${name}"`);
@@ -48,24 +45,19 @@ class ThemeFactory {
 class LightThemeFactory extends ThemeFactory {
   createColors() {
     return {
-      // Fondos
-      bgPrimary:    '#F8FAFC',
+      bgPrimary:    '#F9FAFB',
       bgSecondary:  '#FFFFFF',
-      bgTertiary:   '#F1F5F9',
-      bgHover:      '#E2E8F0',
-      // Textos
-      textPrimary:  '#0F172A',
-      textSecondary:'#475569',
-      textMuted:    '#94A3B8',
+      bgTertiary:   '#F3F4F6',
+      bgHover:      '#E5E7EB',
+      textPrimary:  '#111827',
+      textSecondary:'#4B5563',
+      textMuted:    '#9CA3AF',
       textInverse:  '#FFFFFF',
-      // Bordes
-      border:       '#E2E8F0',
-      borderHover:  '#CBD5E1',
-      // Acento / Brand
-      accent:       '#6366F1',
-      accentHover:  '#4F46E5',
-      accentLight:  '#EEF2FF',
-      // Estados
+      border:       '#E5E7EB',
+      borderHover:  '#D1D5DB',
+      accent:       '#2563EB',
+      accentHover:  '#1D4ED8',
+      accentLight:  '#EFF6FF',
       success:      '#10B981',
       successLight: '#D1FAE5',
       warning:      '#F59E0B',
@@ -74,32 +66,31 @@ class LightThemeFactory extends ThemeFactory {
       errorLight:   '#FEE2E2',
       info:         '#3B82F6',
       infoLight:    '#DBEAFE',
-      // Kanban
-      columnBg:     '#F1F5F9',
+      columnBg:     '#F3F4F6',
       cardBg:       '#FFFFFF',
     };
   }
 
   createShadows() {
     return {
-      sm:  '0 1px 2px 0 rgba(0,0,0,0.05)',
-      md:  '0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04)',
-      lg:  '0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04)',
-      xl:  '0 20px 25px -5px rgba(0,0,0,0.08)',
+      sm: '0 1px 2px 0 rgba(0,0,0,0.04)',
+      md: '0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -1px rgba(0,0,0,0.03)',
+      lg: '0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -2px rgba(0,0,0,0.03)',
+      xl: '0 20px 25px -5px rgba(0,0,0,0.07)',
     };
   }
 
   createComponents() {
     return {
-      navbar:   { bg: '#FFFFFF', borderBottom: '1px solid #E2E8F0' },
-      sidebar:  { bg: '#F8FAFC', borderRight: '1px solid #E2E8F0' },
-      card:     { bg: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: '12px' },
-      input:    { bg: '#FFFFFF', border: '1px solid #CBD5E1', focusBorder: '#6366F1' },
+      navbar:   { bg: '#FFFFFF',  borderBottom: '1px solid #E5E7EB' },
+      sidebar:  { bg: '#F9FAFB', borderRight:  '1px solid #E5E7EB' },
+      card:     { bg: '#FFFFFF',  border: '1px solid #E5E7EB', borderRadius: '12px' },
+      input:    { bg: '#FFFFFF',  border: '1px solid #D1D5DB', focusBorder: '#2563EB' },
       badge:    { borderRadius: '6px', fontWeight: '600', fontSize: '11px' },
       button: {
-        primary: { bg: '#6366F1', color: '#FFFFFF', hover: '#4F46E5' },
-        secondary: { bg: '#F1F5F9', color: '#475569', hover: '#E2E8F0' },
-        danger:  { bg: '#EF4444', color: '#FFFFFF', hover: '#DC2626' },
+        primary:   { bg: '#2563EB', color: '#FFFFFF', hover: '#1D4ED8' },
+        secondary: { bg: '#F3F4F6', color: '#4B5563', hover: '#E5E7EB' },
+        danger:    { bg: '#EF4444', color: '#FFFFFF', hover: '#DC2626' },
       },
     };
   }
@@ -109,24 +100,19 @@ class LightThemeFactory extends ThemeFactory {
 class DarkThemeFactory extends ThemeFactory {
   createColors() {
     return {
-      // Fondos
-      bgPrimary:    '#0F172A',
-      bgSecondary:  '#1E293B',
-      bgTertiary:   '#162032',
-      bgHover:      '#334155',
-      // Textos
-      textPrimary:  '#F1F5F9',
-      textSecondary:'#94A3B8',
-      textMuted:    '#64748B',
-      textInverse:  '#0F172A',
-      // Bordes
-      border:       '#1E293B',
-      borderHover:  '#334155',
-      // Acento / Brand
-      accent:       '#818CF8',
-      accentHover:  '#6366F1',
-      accentLight:  '#1E1B4B',
-      // Estados
+      bgPrimary:    '#09090B',
+      bgSecondary:  '#111113',
+      bgTertiary:   '#18181B',
+      bgHover:      '#27272A',
+      textPrimary:  '#FAFAFA',
+      textSecondary:'#A1A1AA',
+      textMuted:    '#52525B',
+      textInverse:  '#09090B',
+      border:       '#27272A',
+      borderHover:  '#3F3F46',
+      accent:       '#3B82F6',
+      accentHover:  '#2563EB',
+      accentLight:  '#172554',
       success:      '#34D399',
       successLight: '#064E3B',
       warning:      '#FBBF24',
@@ -135,47 +121,39 @@ class DarkThemeFactory extends ThemeFactory {
       errorLight:   '#450A0A',
       info:         '#60A5FA',
       infoLight:    '#1E3A5F',
-      // Kanban
-      columnBg:     '#162032',
-      cardBg:       '#1E293B',
+      columnBg:     '#18181B',
+      cardBg:       '#111113',
     };
   }
 
   createShadows() {
     return {
-      sm:  '0 1px 2px 0 rgba(0,0,0,0.3)',
-      md:  '0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.3)',
-      lg:  '0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.3)',
-      xl:  '0 20px 25px -5px rgba(0,0,0,0.6)',
+      sm: '0 1px 2px 0 rgba(0,0,0,0.5)',
+      md: '0 4px 6px -1px rgba(0,0,0,0.6), 0 2px 4px -1px rgba(0,0,0,0.5)',
+      lg: '0 10px 15px -3px rgba(0,0,0,0.7), 0 4px 6px -2px rgba(0,0,0,0.5)',
+      xl: '0 20px 25px -5px rgba(0,0,0,0.8)',
     };
   }
 
   createComponents() {
     return {
-      navbar:   { bg: '#1E293B', borderBottom: '1px solid #334155' },
-      sidebar:  { bg: '#0F172A', borderRight: '1px solid #1E293B' },
-      card:     { bg: '#1E293B', border: '1px solid #334155', borderRadius: '12px' },
-      input:    { bg: '#0F172A', border: '1px solid #334155', focusBorder: '#818CF8' },
+      navbar:   { bg: '#111113', borderBottom: '1px solid #27272A' },
+      sidebar:  { bg: '#09090B', borderRight:  '1px solid #27272A' },
+      card:     { bg: '#111113', border: '1px solid #27272A', borderRadius: '12px' },
+      input:    { bg: '#09090B', border: '1px solid #27272A', focusBorder: '#3B82F6' },
       badge:    { borderRadius: '6px', fontWeight: '600', fontSize: '11px' },
       button: {
-        primary: { bg: '#818CF8', color: '#0F172A', hover: '#6366F1' },
-        secondary: { bg: '#334155', color: '#94A3B8', hover: '#475569' },
-        danger:  { bg: '#F87171', color: '#0F172A', hover: '#EF4444' },
+        primary:   { bg: '#3B82F6', color: '#FFFFFF', hover: '#2563EB' },
+        secondary: { bg: '#27272A', color: '#A1A1AA', hover: '#3F3F46' },
+        danger:    { bg: '#F87171', color: '#09090B', hover: '#EF4444' },
       },
     };
   }
 }
 
 // ─── Función de acceso ────────────────────────────────────────────────────────
-/**
- * Retorna la fábrica de tema según el nombre solicitado.
- * El consumidor no necesita conocer las clases concretas.
- */
 function getThemeFactory(themeName) {
-  const factories = {
-    light: LightThemeFactory,
-    dark:  DarkThemeFactory,
-  };
+  const factories = { light: LightThemeFactory, dark: DarkThemeFactory };
   const Factory = factories[themeName] || LightThemeFactory;
   return new Factory();
 }
